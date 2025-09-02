@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  
+  <!-- Define the native dependencies that need to be copied -->
+  <ItemGroup>
+    <AndroidScreenCaptureNativeDependencies Include="$(MSBuildThisFileDirectory)adb.exe" />
+    <AndroidScreenCaptureNativeDependencies Include="$(MSBuildThisFileDirectory)AdbWinApi.dll" />
+    <AndroidScreenCaptureNativeDependencies Include="$(MSBuildThisFileDirectory)AdbWinUsbApi.dll" />
+    <AndroidScreenCaptureNativeDependencies Include="$(MSBuildThisFileDirectory)scrcpy-server" />
+  </ItemGroup>
+
+  <!-- Copy native dependencies to output directory -->
+  <Target Name="CopyAndroidScreenCaptureNativeDependencies" BeforeTargets="Build">
+    <Copy SourceFiles="@(AndroidScreenCaptureNativeDependencies)" 
+          DestinationFolder="$(OutputPath)" 
+          SkipUnchangedFiles="true" />
+  </Target>
+
+  <!-- Copy native dependencies to publish directory -->
+  <Target Name="CopyAndroidScreenCaptureNativeDependenciesOnPublish" BeforeTargets="Publish">
+    <Copy SourceFiles="@(AndroidScreenCaptureNativeDependencies)" 
+          DestinationFolder="$(PublishDir)" 
+          SkipUnchangedFiles="true" />
+  </Target>
+
+</Project>

@@ -7,12 +7,36 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
-    <Title>Android Screen Capture</Title>
-    <Description>A .NET library for capturing screenshots from Android devices using scrcpy protocol and FFmpeg</Description>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    
+    <!-- NuGet Package Information -->
     <PackageId>AndroidScreenCapture</PackageId>
     <Version>1.0.0</Version>
-    <Authors>Your Name</Authors>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <AssemblyVersion>1.0.0</AssemblyVersion>
+    <FileVersion>1.0.0</FileVersion>
+    <Title>Android Screen Capture .NET Library</Title>
+    <Description>High-performance .NET library for Android screenshot capture using QtScrcpy components. Features dual capture methods (scrcpy + screencap), persistent connections, multi-device support, and multiple image formats.</Description>
+    <Authors>Hoàng Kim Long</Authors>
+    <Company>klong-dev</Company>
+    <Product>AndroidScreenCapture</Product>
+    <Copyright>© 2025 Hoàng Kim Long. All rights reserved.</Copyright>
+    
+    <!-- NuGet Package Metadata -->
+    <PackageProjectUrl>https://github.com/klong-dev/AndroidScreenCapture</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/klong-dev/AndroidScreenCapture</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>android;screenshot;dotnet;csharp;scrcpy;qtscrcpy;adb;screen-capture;dotnet8;windows;automation;mobile-testing</PackageTags>
+    <PackageReleaseNotes>First stable release with dual capture methods, persistent connections, and multi-device support.</PackageReleaseNotes>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    
+    <!-- Platform Specification -->
+    <RuntimeIdentifiers>win-x64;win-x86;win-arm64</RuntimeIdentifiers>
+    <SupportedOSPlatformVersion>6.1</SupportedOSPlatformVersion>
+    <TargetPlatformIdentifier>Windows</TargetPlatformIdentifier>
   </PropertyGroup>
 
   <ItemGroup>
@@ -22,18 +46,57 @@
   </ItemGroup>
 
   <ItemGroup>
+    <!-- Include native dependencies in NuGet package -->
     <Content Include="dependencies\adb.exe">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <PackagePath>runtimes\win-x64\native\adb.exe</PackagePath>
+      <Pack>true</Pack>
     </Content>
     <Content Include="dependencies\AdbWinApi.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <PackagePath>runtimes\win-x64\native\AdbWinApi.dll</PackagePath>
+      <Pack>true</Pack>
     </Content>
     <Content Include="dependencies\AdbWinUsbApi.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <PackagePath>runtimes\win-x64\native\AdbWinUsbApi.dll</PackagePath>
+      <Pack>true</Pack>
     </Content>
     <Content Include="dependencies\scrcpy-server">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <PackagePath>runtimes\win-x64\native\scrcpy-server</PackagePath>
+      <Pack>true</Pack>
     </Content>
+    
+    <!-- Also copy to build output for local development -->
+    <Content Include="dependencies\adb.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <PackagePath>build\adb.exe</PackagePath>
+      <Pack>true</Pack>
+    </Content>
+    <Content Include="dependencies\AdbWinApi.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <PackagePath>build\AdbWinApi.dll</PackagePath>
+      <Pack>true</Pack>
+    </Content>
+    <Content Include="dependencies\AdbWinUsbApi.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <PackagePath>build\AdbWinUsbApi.dll</PackagePath>
+      <Pack>true</Pack>
+    </Content>
+    <Content Include="dependencies\scrcpy-server">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <PackagePath>build\scrcpy-server</PackagePath>
+      <Pack>true</Pack>
+    </Content>
+  </ItemGroup>
+
+  <!-- Include MSBuild targets file in NuGet package -->
+  <ItemGroup>
+    <None Include="build\AndroidScreenCapture.targets">
+      <PackagePath>build\AndroidScreenCapture.targets</PackagePath>
+      <Pack>true</Pack>
+    </None>
   </ItemGroup>
 
 </Project>
