@@ -6,7 +6,7 @@
     <AndroidScreenCaptureNativeDependencies Include="$(MSBuildThisFileDirectory)adb.exe" />
     <AndroidScreenCaptureNativeDependencies Include="$(MSBuildThisFileDirectory)AdbWinApi.dll" />
     <AndroidScreenCaptureNativeDependencies Include="$(MSBuildThisFileDirectory)AdbWinUsbApi.dll" />
-    <AndroidScreenCaptureNativeDependencies Include="$(MSBuildThisFileDirectory)scrcpy-server" />
+    <AndroidScreenCaptureNativeDependencies Include="$(MSBuildThisFileDirectory)scrcpy-server.jar" />
   </ItemGroup>
 
   <!-- Copy native dependencies to output directory -->

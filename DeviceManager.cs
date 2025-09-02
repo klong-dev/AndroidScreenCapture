@@ -49,21 +49,21 @@ public class DeviceManager : IDeviceManager
     /// </summary>
     private string FindScrcpyServerPath()
     {
-        // Check current directory first
-        var currentDirServer = Path.Combine(AppContext.BaseDirectory, "scrcpy-server");
+        // Check current directory first with .jar extension
+        var currentDirServer = Path.Combine(AppContext.BaseDirectory, "scrcpy-server.jar");
         if (File.Exists(currentDirServer))
         {
             return currentDirServer;
         }
 
-        // Try without extension
+        // Try without extension for backwards compatibility
         var serverPath = Path.Combine(AppContext.BaseDirectory, "scrcpy-server");
         if (File.Exists(serverPath))
         {
             return serverPath;
         }
 
-        throw new FileNotFoundException("scrcpy-server file not found. Please ensure it's in the application directory.");
+        throw new FileNotFoundException("scrcpy-server file not found. Please ensure scrcpy-server.jar is in the application directory.");
     }
 
     /// <inheritdoc/>

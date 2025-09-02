@@ -11,9 +11,9 @@
     
     <!-- NuGet Package Information -->
     <PackageId>AndroidScreenCapture</PackageId>
-    <Version>1.0.0</Version>
-    <AssemblyVersion>1.0.0</AssemblyVersion>
-    <FileVersion>1.0.0</FileVersion>
+    <Version>1.0.1</Version>
+    <AssemblyVersion>1.0.1</AssemblyVersion>
+    <FileVersion>1.0.1</FileVersion>
     <Title>Android Screen Capture .NET Library</Title>
     <Description>High-performance .NET library for Android screenshot capture using QtScrcpy components. Features dual capture methods (scrcpy + screencap), persistent connections, multi-device support, and multiple image formats.</Description>
     <Authors>Hoàng Kim Long</Authors>
@@ -62,9 +62,9 @@
       <PackagePath>runtimes\win-x64\native\AdbWinUsbApi.dll</PackagePath>
       <Pack>true</Pack>
     </Content>
-    <Content Include="dependencies\scrcpy-server">
+    <Content Include="dependencies\scrcpy-server.jar">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <PackagePath>runtimes\win-x64\native\scrcpy-server</PackagePath>
+      <PackagePath>runtimes\win-x64\native\scrcpy-server.jar</PackagePath>
       <Pack>true</Pack>
     </Content>
     
@@ -84,9 +84,9 @@
       <PackagePath>build\AdbWinUsbApi.dll</PackagePath>
       <Pack>true</Pack>
     </Content>
-    <Content Include="dependencies\scrcpy-server">
+    <Content Include="dependencies\scrcpy-server.jar">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <PackagePath>build\scrcpy-server</PackagePath>
+      <PackagePath>build\scrcpy-server.jar</PackagePath>
       <Pack>true</Pack>
     </Content>
   </ItemGroup>
